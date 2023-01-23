@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  aminer_jupyter_prototype:
+    build:
+      context: ./docker/jupyter_prototype/
+      dockerfile: Dockerfile
+    volumes:
+      - ./jupyter_prototype/:/home/jovyan/work/
+    ports:
+      - 2288:8888
+    container_name: aminer_jupyter_prototype
+
+  aminer_postgres_db:
+    build:
+      context: ./docker/postgres_db/
+      dockerfile: Dockerfile
+    volumes:
+      - ./postgres_db/:/home/aminer/
+      - ./postgres_db/data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: aminer_db
+      POSTGRES_USER: aminer
+      POSTGRES_PASSWORD: team13best
+    ports:
+      - 5432:5432
+    container_name: aminer_postgres_db
+
+  aminer_backend:
+    build:
+      context: ./docker/web/backend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./web/backend/:/app/
+    ports:
+      - 5001:5000
+    container_name: aminer_backend
+
+  aminer_frontend:
+    build:
+      context: ./docker/web/frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./web/frontend/:/app/
+    ports:
+      - 8501:8501
+    container_name: aminer_frontend

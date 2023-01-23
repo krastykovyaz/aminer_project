@@ -1,0 +1,10 @@
+Flask==2.2.2
+Flask-SQLAlchemy==3.0.0a2
+flask-marshmallow==0.14.0
+flask-swagger-ui==4.11.1
+marshmallow-sqlalchemy==0.28.1
+psycopg2-binary==2.9.3
+
+scikit-learn
+nltk
+pandas

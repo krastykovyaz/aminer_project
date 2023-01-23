@@ -1,0 +1,6 @@
+# here we have to add necessary python libs
+psycopg2-binary
+catboost
+scikit-learn
+nltk
+pandas

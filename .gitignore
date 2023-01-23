@@ -1,0 +1,8 @@
+# vscode files
+.devcontainer
+.vscode
+
+# python3 virtual environment
+py3ve
+
+**/.DS_Store
